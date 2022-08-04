@@ -3,6 +3,8 @@
 
 Ceci est une explication et implémentation du papier [The Convex Relaxation Barrier, Revisited: Tightened Single-Neuron Relaxations for Neural Network Verification](https://papers.nips.cc/paper/2020/file/f6c2a0c4b566bc99d596e58638e342b0-Paper.pdf).
 
+A cause de problème de conversion LaTeX -> MarkDown, ce readme est assez bugué. Regardez plutôt le fichier .ipynb du repo.
+
 # Notations
 
 
@@ -10,19 +12,15 @@ Ceci est une explication et implémentation du papier [The Convex Relaxation Bar
 * $w$ les poids.
 * $b$ le biais.
 * $z_j = x_j \quad \quad \forall j=1, \ldots, m$
-* **$\hat{z}$ la variable avant la fonction d'activation** : $$
-\hat{z}_{i}=\sum_{j=1}^{i-1} w_{i, j} z_{j}+b_{i} \quad \forall i=m+1, \ldots N, \forall x \in \mathbb{R}^{m}$$
-* **$z$ la variable après la fonction d'activation** : $$
-z_{i}=\sigma\left(\hat{z}_{i}\right) \quad \forall i=m+1, \ldots, N $$ avec $\sigma$ la fonction ReLU
-* **y l'output** : $$
-y_{i}=\sum_{j=1}^{N} w_{i, j} z_{j}+b_{i} \quad \forall i=N+1, \ldots, N+r $$
+* **$\hat{z}$ la variable avant la fonction d'activation** : $\hat{z}_{i}=\sum_{j=1}^{i-1} w_{i, j} z_{j}+b_{i} \quad \forall i=m+1, \ldots N, \forall x \in \mathbb{R}^{m}$
+* **$z$ la variable après la fonction d'activation** : $z_{i}=\sigma\left(\hat{z}_{i}\right) \quad \forall i=m+1, \ldots, N$ avec $\sigma$ la fonction ReLU
+* **y l'output** : $y_{i}=\sum_{j=1}^{N} w_{i, j} z_{j}+b_{i} \quad \forall i=N+1, \ldots, N+r $
 
 On considère tous ces paramètres (en particulier $w$ et $b$) fixés.
 
 * $[\![ n ]\!] \stackrel{\text { def }}{=}\{1, \ldots, n\}$
 
-* $
-\breve{L}_{i} \stackrel{\text { def }}{=}\left\{\begin{array} { l l }  { L _ { i } } & { w _ { i } \geqslant 0 } \\ { U _ { i } } & { \text { sinon } } \end{array} \text { et } \breve { U } _ { i } \stackrel { \text { def } } { = } \left\{\begin{array}{ll} U_{i} & w_{i} \geqslant 0 \\ L_{i} & \text { sinon } \end{array} \text { pour tout } i \in [\![ n ]\!]\right.\right. $
+* $\breve{L}_{i} \stackrel{\text { def }}{=}\left\\lbrace\begin{array} { l l }  { L _ { i } } & { w _ { i } \geqslant 0 } \\ { U _ { i } } & { \text { sinon } } \end{array} \text { et } \breve { U } _ { i } \stackrel { \text { def } } { = } \left\lbrace\begin{array}{ll} U_{i} & w_{i} \geqslant 0 \\ L_{i} & \text { sinon } \end{array} \text { pour tout } i \in [\![ n ]\!]\right.\right.$
 
 * $\ell(I) \stackrel{\text { def }}{=}  \sum_{i \in I} w_{i} \breve{L}_{i}+\sum_{i \notin I} w_{i} \breve{U}_{i}+b $
 
